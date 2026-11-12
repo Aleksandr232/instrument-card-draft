@@ -14,7 +14,7 @@ npm run ai
 npm start
 ```
 
-`npm run ai` поднимает локальный API на [http://127.0.0.1:8080/v1](http://127.0.0.1:8080/v1). Модель — Qwen2.5 1.5B Instruct, файлы лежат в `.local` и в git не попадают. Форма открывается на [http://localhost:3000](http://localhost:3000) и ходит в этот API.
+`npm run ai` поднимает локальный API на [http://127.0.0.1:8080/v1](http://127.0.0.1:8080/v1). Модель — Qwen2.5 1.5B Instruct, файл `.local/models/qwen2.5-1.5b-instruct-q4_k_m.gguf` хранится в репозитории через Git LFS. Форма открывается на [http://localhost:3000](http://localhost:3000) и ходит в этот API.
 
 В `.env` уже указаны локальный адрес и имя модели. `OPENAI_API_KEY=local` — просто признак, что запросы к модели включены; llama-server ключ не проверяет.
 
