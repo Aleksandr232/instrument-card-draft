@@ -1,0 +1,17 @@
+{
+  "name": "instrument-card-draft",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Черновик карточки товара для B2B-каталога контрольно-измерительных приборов",
+  "scripts": {
+    "start": "node src/server.js",
+    "ai": "node src/start-ai.js",
+    "check": "node src/cli.js examples/manometer.json && node src/cli.js examples/thermometer.json",
+    "examples": "node src/save-examples.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Черновик карточки прибора</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="top">
+      <p class="eyebrow">B2B-каталог · контрольно-измерительные приборы</p>
+      <h1>Черновик карточки товара</h1>
+      <p class="lede">
+        Сервис принимает данные прибора и собирает заголовок, описание, характеристики,
+        поисковые запросы и блок для менеджера. Числа и параметры берутся только из входа.
+      </p>
+      <p id="mode" class="mode">Проверяем, задан ли ключ модели…</p>
+    </header>
+
+    <main>
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Данные прибора</h2>
+          <div class="row-actions">
+            <button type="button" id="load-manometer" class="ghost">Манометр</button>
+            <button type="button" id="load-thermometer" class="ghost">Термометр</button>
+          </div>
+        </div>
+
+        <form id="product-form">
+          <label>
+            Название
+            <input id="name" name="name" autocomplete="off" placeholder="Манометр показывающий DM 02" />
+          </label>
+          <label>
+            Производитель
+            <input id="manufacturer" name="manufacturer" autocomplete="off" placeholder="Манотомь" />
+          </label>
+          <label>
+            Описание или фрагмент паспорта
+            <textarea id="description" name="description" rows="4" placeholder="Прибор предназначен для измерения избыточного давления..."></textarea>
+          </label>
+          <p class="hint">Текст, оборванный на многоточии, не дописывается. Пустое поле попадёт в список «данных нет».</p>
+
+          <div class="specs-head">
+            <h3>Характеристики</h3>
+            <button type="button" id="add-spec" class="ghost">Добавить поле</button>
+          </div>
+          <div id="specs" class="specs"></div>
+
+          <details>
+            <summary>Вставить JSON</summary>
+            <textarea id="raw-json" rows="8" spellcheck="false" placeholder='{"name":"...","manufacturer":"...","specs":{},"description":"..."}'></textarea>
+            <button type="button" id="apply-json" class="ghost">Разобрать JSON в форму</button>
+          </details>
+
+          <div class="submit-row">
+            <button type="submit" id="generate">Собрать черновик</button>
+            <p id="form-error" class="error" hidden></p>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel result-panel">
+        <div class="panel-head">
+          <h2>Результат</h2>
+          <div class="row-actions">
+            <button type="button" class="tab active" data-view="markdown">Markdown</button>
+            <button type="button" class="tab" data-view="text">Текст</button>
+            <button type="button" class="tab" data-view="json">JSON</button>
+            <button type="button" id="copy" class="ghost" disabled>Копировать</button>
+          </div>
+        </div>
+        <div id="meta" class="meta" hidden></div>
+        <div id="notice" class="notice" hidden></div>
+        <pre id="output" class="output">Здесь появится черновик, который можно передать контент-менеджеру.</pre>
+      </section>
+    </main>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
